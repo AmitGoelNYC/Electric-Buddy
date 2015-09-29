@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/searchSettingsPref">
+        <SwitchPreference
+            android:key="pref_sync"
+            android:title="Units of Distance"
+            android:defaultValue="true"
+            android:switchTextOff="Km"
+            android:switchTextOn="Miles"
+            android:summaryOff="Kilometers"
+            android:summaryOn ="Miles"/>
+
+        <SwitchPreference
+            android:key="parent_checkbox_preference"
+            android:title="Choose Charging Type"
+            android:summaryOff="All"
+            android:summaryOn ="Custom"
+            android:defaultValue="false" />
+
+        <!-- The visual style of a child is defined by this styled theme attribute. -->
+        <SwitchPreference
+            android:key="child_checkbox_preference"
+            android:dependency="parent_checkbox_preference"
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:title="Public or Private"
+            android:summaryOff="Private"
+            android:summaryOn ="Public"
+            android:defaultValue="true" />
+
+        <MultiSelectListPreference
+            android:dialogTitle="Public or Private"
+            android:key="mode_repeat"
+            android:summary="@array/chargeType"
+            android:title="Please choose Charging type"
+            android:entries="@array/chargeType"
+            android:entryValues="@array/chargeValues"
+            android:defaultValue="@array/empty_array" />
+    </PreferenceCategory>
+</PreferenceScreen>
